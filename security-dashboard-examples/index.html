@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Security Dashboard Examples: 8 Layouts That Actually Work &#8211; SecurityDashboards.net</title>
+<meta name="description" content="Eight security dashboard examples for SOC, CISO and compliance use, what to put on each, common mistakes, and the data question every example has in common.">
+<link rel="canonical" href="https://securitydashboards.net/security-dashboard-examples/">
+<meta property="og:title" content="Security Dashboard Examples: 8 Layouts That Actually Work">
+<meta property="og:description" content="Eight security dashboard examples for SOC, CISO and compliance use, what to put on each, common mistakes, and the data question every example has in common.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="SecurityDashboards.net">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Security Dashboard Examples: 8 Layouts That Actually Work","description":"Eight security dashboard examples for SOC, CISO and compliance use, what to put on each, common mistakes, and the data question every example has in common.","url":"https://securitydashboards.net/security-dashboard-examples/","author":{"@type":"Organization","name":"SecurityDashboards.net"}}</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:#f5f4f1;color:#1a2030;font-size:1.0625rem;line-height:1.78;-webkit-font-smoothing:antialiased}
+
+/* ---- Header ---- */
+.site-hdr{background:#0c1a2e;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,0.06)}
+.hdr-inner{max-width:788px;margin:0 auto;padding:0 24px;height:58px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:Georgia,'Times New Roman',serif;font-size:1rem;color:#fff;text-decoration:none;flex-shrink:0;letter-spacing:-0.01em}
+.logo span{opacity:0.55}
+.main-nav{display:flex;gap:2px;flex-shrink:0}
+.main-nav a{color:rgba(255,255,255,0.68);text-decoration:none;font-size:0.875rem;padding:5px 10px;border-radius:4px;transition:color 0.12s,background 0.12s;white-space:nowrap}
+.main-nav a:hover{color:#fff;background:rgba(255,255,255,0.09)}
+
+/* ---- Breadcrumb ---- */
+.breadcrumb{background:#fff;border-bottom:1px solid #ddd8d0}
+.bc-inner{max-width:788px;margin:0 auto;padding:9px 24px;font-size:0.8125rem;color:#516070;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.bc-inner a{color:#516070;text-decoration:none}
+.bc-inner a:hover{text-decoration:underline}
+.bc-sep{opacity:0.4;user-select:none}
+
+/* ---- Main ---- */
+main{max-width:788px;margin:0 auto;padding:52px 24px 88px}
+
+/* ---- Article typography ---- */
+article h1{font-family:Georgia,'Times New Roman',serif;font-size:2.125rem;font-weight:400;line-height:1.2;letter-spacing:-0.025em;margin-bottom:1.25rem;text-wrap:pretty;color:#1a2030}
+article h2{font-family:Georgia,'Times New Roman',serif;font-size:1.375rem;font-weight:400;line-height:1.3;margin-top:2.5rem;margin-bottom:0.75rem;color:#1a2030;text-wrap:pretty}
+article h3{font-size:1rem;font-weight:700;margin-top:1.75rem;margin-bottom:0.4rem;color:#1a2030}
+article p{margin-bottom:1.2rem;text-wrap:pretty}
+article>h1+p{color:#516070;font-size:1.05rem;margin-bottom:1.75rem;padding-bottom:1.75rem;border-bottom:1px solid #ddd8d0}
+article ul{margin:0.25rem 0 1.25rem 1.375rem}
+article li{margin-bottom:0.4rem}
+article a{color:#1a56a0;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+article a:hover{color:#0e3d7c}
+article strong{color:#1a2030;font-weight:700}
+
+/* ---- Home hero ---- */
+.is-home article h1{font-size:2.5rem;margin-bottom:1rem}
+.is-home article>h1+p{font-size:1.1rem}
+
+/* ---- Table ---- */
+.table-wrap{overflow-x:auto;margin:1.75rem 0;border-radius:6px;border:1px solid #ddd8d0;box-shadow:0 1px 3px rgba(0,0,0,0.05)}
+table{width:100%;border-collapse:collapse;font-size:0.9375rem}
+thead{background:#0c1a2e}
+th{text-align:left;padding:11px 15px;color:rgba(255,255,255,0.88);font-size:0.77rem;font-weight:600;text-transform:uppercase;letter-spacing:0.07em}
+td{padding:11px 15px;border-bottom:1px solid #ddd8d0;vertical-align:top}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:#eef3fb}
+
+/* ---- CTA box ---- */
+.cta-box{background:#0c1a2e;border-radius:8px;padding:36px 40px;margin:56px 0 0;border:1px solid rgba(255,255,255,0.07)}
+.cta-inner{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.cta-eyebrow{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.13em;color:rgba(255,255,255,0.4);margin-bottom:6px;font-weight:600}
+.cta-box h3{font-family:Georgia,'Times New Roman',serif;font-size:1.25rem;font-weight:400;color:#fff;margin-bottom:10px}
+.cta-box>div>div p,.cta-inner>div p{font-size:0.9375rem;color:rgba(255,255,255,0.65);max-width:400px;margin:0}
+.cta-btn{display:inline-block;background:#fff;color:#0c1a2e;padding:11px 24px;border-radius:5px;font-weight:600;font-size:0.9375rem;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:opacity 0.12s}
+.cta-btn:hover{opacity:0.9;color:#0c1a2e}
+
+/* ---- Footer ---- */
+.site-ftr{background:#0c1a2e;color:rgba(255,255,255,0.6);padding:56px 24px 36px}
+.ftr-inner{max-width:788px;margin:0 auto}
+.ftr-top{display:flex;gap:48px;margin-bottom:40px;flex-wrap:wrap}
+.ftr-brand{flex:0 0 180px}
+.ftr-brand>a{display:block;font-family:Georgia,'Times New Roman',serif;color:#fff;text-decoration:none;font-size:1rem;margin-bottom:10px}
+.ftr-brand p{font-size:0.8rem;line-height:1.55;color:rgba(255,255,255,0.35)}
+.ftr-nav{display:flex;gap:32px;flex:1;flex-wrap:wrap}
+.ftr-col h4{color:rgba(255,255,255,0.35);font-size:0.67rem;text-transform:uppercase;letter-spacing:0.1em;font-weight:600;margin-bottom:12px}
+.ftr-col ul{list-style:none}
+.ftr-col li{margin-bottom:8px}
+.ftr-col a{color:rgba(255,255,255,0.55);text-decoration:none;font-size:0.875rem;line-height:1.35;transition:color 0.12s}
+.ftr-col a:hover{color:rgba(255,255,255,0.9)}
+.ftr-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:20px;font-size:0.8rem;color:rgba(255,255,255,0.3)}
+.ftr-bottom a{color:rgba(255,255,255,0.45);text-decoration:none}
+.ftr-bottom a:hover{color:rgba(255,255,255,0.65)}
+
+/* ---- Responsive ---- */
+@media(max-width:700px){
+  .hdr-inner{gap:8px}
+  .main-nav{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .main-nav::-webkit-scrollbar{display:none}
+  .main-nav a{font-size:0.8rem;padding:4px 7px}
+  article h1{font-size:1.75rem}
+  .is-home article h1{font-size:2rem}
+  article h2{font-size:1.25rem}
+  main{padding:36px 20px 64px}
+  .ftr-top{flex-direction:column;gap:28px}
+  .ftr-brand{flex:none}
+  .ftr-nav{flex-direction:column;gap:20px}
+  .cta-inner{flex-direction:column;align-items:flex-start}
+  .cta-box{padding:28px 24px}
+}
+</style>
+</head>
+<body>
+
+<header class="site-hdr">
+  <div class="hdr-inner">
+    <a class="logo" href="../">SecurityDashboards<span>.net</span></a>
+    <nav class="main-nav"><a href="../what-is-a-security-dashboard/">What Is a Dashboard</a><a href="../what-is-a-ciso-dashboard/">CISO Dashboard</a><a href="../best-security-dashboard-tools-2026/">Tools</a><a href="../the-data-layer-beneath-the-dashboard/">Data Layer</a><a href="../about/">About</a></nav>
+  </div>
+</header>
+
+<main>
+  <article>
+    <h1>Security dashboard examples</h1>
+<p>The fastest way to understand security dashboards is to look at what goes on them. Below are eight examples grouped by who they serve. For each one I have noted what belongs on it, and the mistake people make.</p>
+<p>If you want the concepts first, start with <a href="../what-is-a-security-dashboard/">what a security dashboard is</a>.</p>
+<h2>Executive and CISO examples</h2>
+<h3>1. Board risk posture dashboard</h3>
+<p>One trend line of overall risk exposure, broken down by a few major categories. A short list of the top risks and what is being done about each. Spend against risk reduction.</p>
+<p>The mistake: cramming it with operational detail. The board does not want alert counts. They want direction and confidence. More on this in <a href="../what-is-a-ciso-dashboard/">what a CISO dashboard is</a>.</p>
+<h3>2. Program performance dashboard</h3>
+<p>Patch SLA adherence, remediation velocity, control coverage against your framework, all as trends over the last several quarters. This is the dashboard that proves the program works.</p>
+<p>The mistake: showing this quarter's snapshot with no history. A single number means nothing. The trend is the message.</p>
+<h3>3. Compliance posture dashboard</h3>
+<p>Control coverage against ISO 27001, NIST CSF, SAMA, or whatever applies. Audit readiness. Open gaps ranked by severity.</p>
+<p>The mistake: treating it as a one time audit artifact instead of a living view. Compliance drifts. The dashboard should show the drift.</p>
+<h2>SOC and operational examples</h2>
+<h3>4. SOC overview dashboard</h3>
+<p>Open alerts by severity, incidents in progress, mean time to detect and respond, analyst workload. The pulse of the operation.</p>
+<p>The mistake: confusing it with a CISO dashboard. This belongs to analysts, not the board. See <a href="../security-dashboard-vs-siem/">security dashboard vs SIEM</a> for why these stay separate.</p>
+<h3>5. Vulnerability management dashboard</h3>
+<p>Open vulnerabilities by severity and age, remediation rate, exposure on internet facing assets, SLA breaches.</p>
+<p>The mistake: counting vulnerabilities differently across scanners and then trusting the total. If two tools define "critical" differently, your sum is fiction.</p>
+<h3>6. Detection coverage dashboard</h3>
+<p>Coverage mapped to a framework like MITRE ATT&CK, data source health, detection gaps.</p>
+<p>The mistake: showing coverage as a percentage with no source of truth behind it. Coverage of what, measured how, recorded where.</p>
+<h2>Compliance and posture examples</h2>
+<h3>7. Asset and identity posture dashboard</h3>
+<p>Inventory completeness, unmanaged assets, stale accounts, privileged access exposure.</p>
+<p>The mistake: pulling asset counts from one tool and identity counts from another with no shared definition of what an asset or an identity even is.</p>
+<h3>8. Third party and supply chain risk dashboard</h3>
+<p>Vendor risk scores, assessment status, concentration risk.</p>
+<p>The mistake: mixing external scores with internal data that were never measured on the same scale.</p>
+<h2>What every example has in common</h2>
+<p>Look back across all eight. Each one is a rendering of numbers that come from multiple tools. And in every case, the example only works if those numbers are counted consistently, recorded reliably and traceable to a source.</p>
+<p>That is the common thread, and the common failure. The layout is the easy part. You can copy any of these in an afternoon with the right tool, and the <a href="../best-security-dashboard-tools-2026/">2026 tool comparison</a> will help you pick one. What separates a dashboard you can defend from one you cannot is whether the data underneath is sound.</p>
+<p>If you have ever watched two of these dashboards disagree about the same metric, you already know the problem is not the dashboard. It is <a href="../the-data-layer-beneath-the-dashboard/">the data layer beneath it</a>.</p>
+<p>Ready to build one of these? Read <a href="../how-to-build-a-security-dashboard/">how to build a security dashboard</a>.</p>
+
+  </article>
+  
+</main>
+
+<footer class="site-ftr">
+  <div class="ftr-inner">
+    <div class="ftr-top">
+      <div class="ftr-brand">
+        <a href="../">SecurityDashboards.net</a>
+        <p>A practical, vendor-neutral guide to security dashboards and the data layer beneath them.</p>
+      </div>
+      <div class="ftr-nav">
+        <div class="ftr-col">
+          <h4>Guides</h4>
+          <ul>
+            <li><a href="../what-is-a-security-dashboard/">What Is a Security Dashboard?</a></li>
+            <li><a href="../what-is-a-ciso-dashboard/">What Is a CISO Dashboard?</a></li>
+            <li><a href="../security-dashboard-examples/">Security Dashboard Examples</a></li>
+            <li><a href="../security-dashboard-vs-siem/">Dashboard vs SIEM</a></li>
+            <li><a href="../how-to-build-a-security-dashboard/">How to Build a Dashboard</a></li>
+          </ul>
+        </div>
+        <div class="ftr-col">
+          <h4>Tool Comparisons</h4>
+          <ul>
+            <li><a href="../best-security-dashboard-tools-2026/">Best Tools 2026</a></li>
+            <li><a href="../tools/grafana-security-dashboard/">Grafana</a></li>
+            <li><a href="../tools/power-bi-security-dashboard/">Power BI</a></li>
+            <li><a href="../tools/servicenow-security-dashboard/">ServiceNow</a></li>
+            <li><a href="../tools/splunk-security-dashboard/">Splunk</a></li>
+          </ul>
+        </div>
+        <div class="ftr-col">
+          <h4>The Data Layer</h4>
+          <ul>
+            <li><a href="../the-data-layer-beneath-the-dashboard/">The Data Layer</a></li>
+            <li><a href="../security-dashboard-data-problem/">The Data Problem</a></li>
+            <li><a href="../security-kpi-system-of-record/">Security KPI System of Record</a></li>
+            <li><a href="../about/">About This Site</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="ftr-bottom">
+      <p>&copy; 2026 SecurityDashboards.net &middot; Written by a security founder (Innovera, Atar Labs). The author runs <a href="https://metricmaestro.com" rel="noopener noreferrer" target="_blank">Metric Maestro</a>, a security KPI system of record. <a href="../about/">Full disclosure &rarr;</a></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

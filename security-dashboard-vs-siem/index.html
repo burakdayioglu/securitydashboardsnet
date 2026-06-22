@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Security Dashboard vs SIEM: What's the Difference? &#8211; SecurityDashboards.net</title>
+<meta name="description" content="Security dashboard vs SIEM explained simply. What each one does, where they overlap, why a SIEM is not a reporting system, and what actually owns your program metrics.">
+<link rel="canonical" href="https://securitydashboards.net/security-dashboard-vs-siem/">
+<meta property="og:title" content="Security Dashboard vs SIEM: What's the Difference?">
+<meta property="og:description" content="Security dashboard vs SIEM explained simply. What each one does, where they overlap, why a SIEM is not a reporting system, and what actually owns your program metrics.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="SecurityDashboards.net">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Security Dashboard vs SIEM: What's the Difference?","description":"Security dashboard vs SIEM explained simply. What each one does, where they overlap, why a SIEM is not a reporting system, and what actually owns your program metrics.","url":"https://securitydashboards.net/security-dashboard-vs-siem/","author":{"@type":"Organization","name":"SecurityDashboards.net"}}</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:#f5f4f1;color:#1a2030;font-size:1.0625rem;line-height:1.78;-webkit-font-smoothing:antialiased}
+
+/* ---- Header ---- */
+.site-hdr{background:#0c1a2e;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,0.06)}
+.hdr-inner{max-width:788px;margin:0 auto;padding:0 24px;height:58px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:Georgia,'Times New Roman',serif;font-size:1rem;color:#fff;text-decoration:none;flex-shrink:0;letter-spacing:-0.01em}
+.logo span{opacity:0.55}
+.main-nav{display:flex;gap:2px;flex-shrink:0}
+.main-nav a{color:rgba(255,255,255,0.68);text-decoration:none;font-size:0.875rem;padding:5px 10px;border-radius:4px;transition:color 0.12s,background 0.12s;white-space:nowrap}
+.main-nav a:hover{color:#fff;background:rgba(255,255,255,0.09)}
+
+/* ---- Breadcrumb ---- */
+.breadcrumb{background:#fff;border-bottom:1px solid #ddd8d0}
+.bc-inner{max-width:788px;margin:0 auto;padding:9px 24px;font-size:0.8125rem;color:#516070;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.bc-inner a{color:#516070;text-decoration:none}
+.bc-inner a:hover{text-decoration:underline}
+.bc-sep{opacity:0.4;user-select:none}
+
+/* ---- Main ---- */
+main{max-width:788px;margin:0 auto;padding:52px 24px 88px}
+
+/* ---- Article typography ---- */
+article h1{font-family:Georgia,'Times New Roman',serif;font-size:2.125rem;font-weight:400;line-height:1.2;letter-spacing:-0.025em;margin-bottom:1.25rem;text-wrap:pretty;color:#1a2030}
+article h2{font-family:Georgia,'Times New Roman',serif;font-size:1.375rem;font-weight:400;line-height:1.3;margin-top:2.5rem;margin-bottom:0.75rem;color:#1a2030;text-wrap:pretty}
+article h3{font-size:1rem;font-weight:700;margin-top:1.75rem;margin-bottom:0.4rem;color:#1a2030}
+article p{margin-bottom:1.2rem;text-wrap:pretty}
+article>h1+p{color:#516070;font-size:1.05rem;margin-bottom:1.75rem;padding-bottom:1.75rem;border-bottom:1px solid #ddd8d0}
+article ul{margin:0.25rem 0 1.25rem 1.375rem}
+article li{margin-bottom:0.4rem}
+article a{color:#1a56a0;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+article a:hover{color:#0e3d7c}
+article strong{color:#1a2030;font-weight:700}
+
+/* ---- Home hero ---- */
+.is-home article h1{font-size:2.5rem;margin-bottom:1rem}
+.is-home article>h1+p{font-size:1.1rem}
+
+/* ---- Table ---- */
+.table-wrap{overflow-x:auto;margin:1.75rem 0;border-radius:6px;border:1px solid #ddd8d0;box-shadow:0 1px 3px rgba(0,0,0,0.05)}
+table{width:100%;border-collapse:collapse;font-size:0.9375rem}
+thead{background:#0c1a2e}
+th{text-align:left;padding:11px 15px;color:rgba(255,255,255,0.88);font-size:0.77rem;font-weight:600;text-transform:uppercase;letter-spacing:0.07em}
+td{padding:11px 15px;border-bottom:1px solid #ddd8d0;vertical-align:top}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:#eef3fb}
+
+/* ---- CTA box ---- */
+.cta-box{background:#0c1a2e;border-radius:8px;padding:36px 40px;margin:56px 0 0;border:1px solid rgba(255,255,255,0.07)}
+.cta-inner{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.cta-eyebrow{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.13em;color:rgba(255,255,255,0.4);margin-bottom:6px;font-weight:600}
+.cta-box h3{font-family:Georgia,'Times New Roman',serif;font-size:1.25rem;font-weight:400;color:#fff;margin-bottom:10px}
+.cta-box>div>div p,.cta-inner>div p{font-size:0.9375rem;color:rgba(255,255,255,0.65);max-width:400px;margin:0}
+.cta-btn{display:inline-block;background:#fff;color:#0c1a2e;padding:11px 24px;border-radius:5px;font-weight:600;font-size:0.9375rem;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:opacity 0.12s}
+.cta-btn:hover{opacity:0.9;color:#0c1a2e}
+
+/* ---- Footer ---- */
+.site-ftr{background:#0c1a2e;color:rgba(255,255,255,0.6);padding:56px 24px 36px}
+.ftr-inner{max-width:788px;margin:0 auto}
+.ftr-top{display:flex;gap:48px;margin-bottom:40px;flex-wrap:wrap}
+.ftr-brand{flex:0 0 180px}
+.ftr-brand>a{display:block;font-family:Georgia,'Times New Roman',serif;color:#fff;text-decoration:none;font-size:1rem;margin-bottom:10px}
+.ftr-brand p{font-size:0.8rem;line-height:1.55;color:rgba(255,255,255,0.35)}
+.ftr-nav{display:flex;gap:32px;flex:1;flex-wrap:wrap}
+.ftr-col h4{color:rgba(255,255,255,0.35);font-size:0.67rem;text-transform:uppercase;letter-spacing:0.1em;font-weight:600;margin-bottom:12px}
+.ftr-col ul{list-style:none}
+.ftr-col li{margin-bottom:8px}
+.ftr-col a{color:rgba(255,255,255,0.55);text-decoration:none;font-size:0.875rem;line-height:1.35;transition:color 0.12s}
+.ftr-col a:hover{color:rgba(255,255,255,0.9)}
+.ftr-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:20px;font-size:0.8rem;color:rgba(255,255,255,0.3)}
+.ftr-bottom a{color:rgba(255,255,255,0.45);text-decoration:none}
+.ftr-bottom a:hover{color:rgba(255,255,255,0.65)}
+
+/* ---- Responsive ---- */
+@media(max-width:700px){
+  .hdr-inner{gap:8px}
+  .main-nav{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .main-nav::-webkit-scrollbar{display:none}
+  .main-nav a{font-size:0.8rem;padding:4px 7px}
+  article h1{font-size:1.75rem}
+  .is-home article h1{font-size:2rem}
+  article h2{font-size:1.25rem}
+  main{padding:36px 20px 64px}
+  .ftr-top{flex-direction:column;gap:28px}
+  .ftr-brand{flex:none}
+  .ftr-nav{flex-direction:column;gap:20px}
+  .cta-inner{flex-direction:column;align-items:flex-start}
+  .cta-box{padding:28px 24px}
+}
+</style>
+</head>
+<body>
+
+<header class="site-hdr">
+  <div class="hdr-inner">
+    <a class="logo" href="../">SecurityDashboards<span>.net</span></a>
+    <nav class="main-nav"><a href="../what-is-a-security-dashboard/">What Is a Dashboard</a><a href="../what-is-a-ciso-dashboard/">CISO Dashboard</a><a href="../best-security-dashboard-tools-2026/">Tools</a><a href="../the-data-layer-beneath-the-dashboard/">Data Layer</a><a href="../about/">About</a></nav>
+  </div>
+</header>
+
+<main>
+  <article>
+    <h1>Security dashboard vs SIEM</h1>
+<p>These two get confused because a SIEM has dashboards in it. But they are different kinds of thing, and treating them as the same leads to a specific, expensive mistake. Let me lay it out.</p>
+<h2>What a SIEM is for</h2>
+<p>A SIEM collects events. Logs, alerts, telemetry, pouring in from across your environment in real time. It correlates them, raises alerts, and helps analysts hunt and investigate.</p>
+<p>The SIEM is the system of record for operational events. When something happened, what fired, what an analyst did about it. That is its job and it is genuinely good at it.</p>
+<p>A SIEM ships with dashboards so analysts can see what is happening now. Those dashboards are operational by nature. Live, event driven, built for the SOC.</p>
+<h2>What a security dashboard is for</h2>
+<p>A <a href="../what-is-a-security-dashboard/">security dashboard</a>, in the broader sense, is any single view that makes security data readable. Some live inside a SIEM. Many do not. A board risk dashboard, a compliance posture view, a program performance trend, these usually pull from many sources, not just the SIEM, and they speak to leadership rather than analysts.</p>
+<p>So the overlap is narrow. A SIEM has operational dashboards. But the executive and compliance dashboards a CISO needs reach far beyond what a SIEM holds. The SIEM does not know your patch SLA adherence, your control coverage against a framework, your spend against risk reduction, or the data sitting in your GRC tool, your HR system or your asset inventory.</p>
+<h2>Where the expensive mistake happens</h2>
+<p>Teams reach for the SIEM as their reporting system because it is already there and it already has dashboards. Then they hit a wall.</p>
+<p>A SIEM is built for high volume operational events, not for clean, reproducible program metrics over time. Ask it to recreate last quarter's exact risk number and you will struggle, because it was designed to detect and respond, not to keep an auditable ledger of computed KPIs. Ask it to combine security telemetry with non security data like HR or finance, and it was never meant to. Its grain is the event. Your board metrics live at a completely different grain.</p>
+<p>This is the heart of the confusion. A SIEM owns operational event records. Program performance metrics are a different thing entirely, and they need a different home. People are starting to name that home a <a href="../security-kpi-system-of-record/">security KPI system of record</a>, the same way finance separates the transaction system from the general ledger.</p>
+<h2>A simple way to keep them straight</h2>
+<p>Ask what question you are answering.</p>
+<p>"What is happening right now and what should an analyst do?" That is the SIEM and its operational dashboards.</p>
+<p>"How is our program performing over time, and can I prove these numbers to the board?" That is an executive <a href="../what-is-a-ciso-dashboard/">CISO dashboard</a>, and the data behind it almost never lives in the SIEM alone.</p>
+<h2>The part both share</h2>
+<p>Here is what unites them, and it is the recurring theme of this whole site. Both a SIEM dashboard and a CISO dashboard are only as trustworthy as the data underneath. The SIEM at least keeps a disciplined record of events. Most program reporting has no equivalent discipline. Numbers get assembled by hand, from inconsistent sources, with no trace of where they came from.</p>
+<p>If you want to see why that gap matters more than which dashboard tool you pick, read <a href="../the-data-layer-beneath-the-dashboard/">the data layer beneath the dashboard</a>. If you are still choosing tools, the <a href="../best-security-dashboard-tools-2026/">2026 comparison</a> is the place to go.</p>
+<h2>Bottom line</h2>
+<p>A SIEM detects and responds. A security dashboard reports and explains. They are not competitors and you will probably need both. Just do not ask your SIEM to be your board reporting system, and do not assume a pretty dashboard means the numbers behind it are sound.</p>
+
+  </article>
+  
+</main>
+
+<footer class="site-ftr">
+  <div class="ftr-inner">
+    <div class="ftr-top">
+      <div class="ftr-brand">
+        <a href="../">SecurityDashboards.net</a>
+        <p>A practical, vendor-neutral guide to security dashboards and the data layer beneath them.</p>
+      </div>
+      <div class="ftr-nav">
+        <div class="ftr-col">
+          <h4>Guides</h4>
+          <ul>
+            <li><a href="../what-is-a-security-dashboard/">What Is a Security Dashboard?</a></li>
+            <li><a href="../what-is-a-ciso-dashboard/">What Is a CISO Dashboard?</a></li>
+            <li><a href="../security-dashboard-examples/">Security Dashboard Examples</a></li>
+            <li><a href="../security-dashboard-vs-siem/">Dashboard vs SIEM</a></li>
+            <li><a href="../how-to-build-a-security-dashboard/">How to Build a Dashboard</a></li>
+          </ul>
+        </div>
+        <div class="ftr-col">
+          <h4>Tool Comparisons</h4>
+          <ul>
+            <li><a href="../best-security-dashboard-tools-2026/">Best Tools 2026</a></li>
+            <li><a href="../tools/grafana-security-dashboard/">Grafana</a></li>
+            <li><a href="../tools/power-bi-security-dashboard/">Power BI</a></li>
+            <li><a href="../tools/servicenow-security-dashboard/">ServiceNow</a></li>
+            <li><a href="../tools/splunk-security-dashboard/">Splunk</a></li>
+          </ul>
+        </div>
+        <div class="ftr-col">
+          <h4>The Data Layer</h4>
+          <ul>
+            <li><a href="../the-data-layer-beneath-the-dashboard/">The Data Layer</a></li>
+            <li><a href="../security-dashboard-data-problem/">The Data Problem</a></li>
+            <li><a href="../security-kpi-system-of-record/">Security KPI System of Record</a></li>
+            <li><a href="../about/">About This Site</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="ftr-bottom">
+      <p>&copy; 2026 SecurityDashboards.net &middot; Written by a security founder (Innovera, Atar Labs). The author runs <a href="https://metricmaestro.com" rel="noopener noreferrer" target="_blank">Metric Maestro</a>, a security KPI system of record. <a href="../about/">Full disclosure &rarr;</a></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

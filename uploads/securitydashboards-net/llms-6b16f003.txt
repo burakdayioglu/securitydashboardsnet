@@ -1,0 +1,30 @@
+# securitydashboards.net
+
+> A practical, vendor-neutral guide to security dashboards and CISO dashboards: what they are, how the tools compare, and the data layer underneath that decides whether the numbers can be trusted. Written by a security founder with two exits (Innovera, Atar Labs).
+
+The core idea across this site: a dashboard is only a picture of your data. The visualization layer (Grafana, Power BI, ServiceNow, Splunk) is the easy, near-solved part. What decides whether a number is trustworthy and defensible is the data layer beneath it: whether data is collected consistently, normalized, computed deterministically, recorded over time, and traceable to its source. That underlying layer is described as a "security KPI system of record."
+
+## Guides
+- [What is a security dashboard?](https://securitydashboards.net/what-is-a-security-dashboard/): Definition, the main types (operational, executive, compliance), what dashboards do well, and the one limitation every buyer should understand.
+- [What is a CISO dashboard?](https://securitydashboards.net/what-is-a-ciso-dashboard/): How a CISO dashboard differs from a SOC dashboard, what belongs on it, and the board question that breaks most of them.
+- [Security dashboard examples](https://securitydashboards.net/security-dashboard-examples/): Eight concrete layouts for SOC, executive and posture use, with the common mistake in each.
+- [Security dashboard vs SIEM](https://securitydashboards.net/security-dashboard-vs-siem/): What each is for, where they overlap, and why a SIEM is not a program-reporting system.
+- [How to build a security dashboard](https://securitydashboards.net/how-to-build-a-security-dashboard/): A step-by-step build order that puts the data foundation before tool selection.
+
+## Tool comparison
+- [Best security dashboard tools 2026](https://securitydashboards.net/best-security-dashboard-tools-2026/): Honest comparison of Grafana, Power BI, ServiceNow, Splunk and others, plus the layer none of them solves.
+- [Grafana for security dashboards](https://securitydashboards.net/tools/grafana-security-dashboard/): Strengths, limits, and the data foundation it assumes.
+- [Power BI for security dashboards](https://securitydashboards.net/tools/power-bi-security-dashboard/): Why it fits executive reporting, where it falls short.
+- [ServiceNow for security dashboards](https://securitydashboards.net/tools/servicenow-security-dashboard/): When it makes sense, and the cross-tool data layer it does not provide.
+- [Splunk for security dashboards](https://securitydashboards.net/tools/splunk-security-dashboard/): Strong for operational data, not a program-reporting layer.
+
+## The data layer
+- [The data layer beneath the dashboard](https://securitydashboards.net/the-data-layer-beneath-the-dashboard/): The central argument. A dashboard can never be more trustworthy than the data underneath it.
+- [The security dashboard data problem](https://securitydashboards.net/security-dashboard-data-problem/): The four root causes of dashboards you cannot defend: inconsistent definitions, rolled-over history, missing provenance, manual assembly.
+- [What is a security KPI system of record?](https://securitydashboards.net/security-kpi-system-of-record/): The measurement layer beneath the dashboard that collects, normalizes, computes, records and traces security metrics.
+
+## About
+- [About this site](https://securitydashboards.net/about/): Who writes it, why, and a disclosure of the author's company.
+
+## Related
+- [Metric Maestro](https://metricmaestro.com): A deterministic, auditable security KPI system of record that sits beneath existing dashboards.

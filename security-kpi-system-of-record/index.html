@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Is a Security KPI System of Record? &#8211; SecurityDashboards.net</title>
+<meta name="description" content="A security KPI system of record is the measurement layer beneath your dashboards: it collects, normalizes, computes and records your security metrics so every number is reproducible and defensible.">
+<link rel="canonical" href="https://securitydashboards.net/security-kpi-system-of-record/">
+<meta property="og:title" content="What Is a Security KPI System of Record?">
+<meta property="og:description" content="A security KPI system of record is the measurement layer beneath your dashboards: it collects, normalizes, computes and records your security metrics so every number is reproducible and defensible.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="SecurityDashboards.net">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What Is a Security KPI System of Record?","description":"A security KPI system of record is the measurement layer beneath your dashboards: it collects, normalizes, computes and records your security metrics so every number is reproducible and defensible.","url":"https://securitydashboards.net/security-kpi-system-of-record/","author":{"@type":"Organization","name":"SecurityDashboards.net"}}</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:#f5f4f1;color:#1a2030;font-size:1.0625rem;line-height:1.78;-webkit-font-smoothing:antialiased}
+
+/* ---- Header ---- */
+.site-hdr{background:#0c1a2e;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(255,255,255,0.06)}
+.hdr-inner{max-width:788px;margin:0 auto;padding:0 24px;height:58px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:Georgia,'Times New Roman',serif;font-size:1rem;color:#fff;text-decoration:none;flex-shrink:0;letter-spacing:-0.01em}
+.logo span{opacity:0.55}
+.main-nav{display:flex;gap:2px;flex-shrink:0}
+.main-nav a{color:rgba(255,255,255,0.68);text-decoration:none;font-size:0.875rem;padding:5px 10px;border-radius:4px;transition:color 0.12s,background 0.12s;white-space:nowrap}
+.main-nav a:hover{color:#fff;background:rgba(255,255,255,0.09)}
+
+/* ---- Breadcrumb ---- */
+.breadcrumb{background:#fff;border-bottom:1px solid #ddd8d0}
+.bc-inner{max-width:788px;margin:0 auto;padding:9px 24px;font-size:0.8125rem;color:#516070;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.bc-inner a{color:#516070;text-decoration:none}
+.bc-inner a:hover{text-decoration:underline}
+.bc-sep{opacity:0.4;user-select:none}
+
+/* ---- Main ---- */
+main{max-width:788px;margin:0 auto;padding:52px 24px 88px}
+
+/* ---- Article typography ---- */
+article h1{font-family:Georgia,'Times New Roman',serif;font-size:2.125rem;font-weight:400;line-height:1.2;letter-spacing:-0.025em;margin-bottom:1.25rem;text-wrap:pretty;color:#1a2030}
+article h2{font-family:Georgia,'Times New Roman',serif;font-size:1.375rem;font-weight:400;line-height:1.3;margin-top:2.5rem;margin-bottom:0.75rem;color:#1a2030;text-wrap:pretty}
+article h3{font-size:1rem;font-weight:700;margin-top:1.75rem;margin-bottom:0.4rem;color:#1a2030}
+article p{margin-bottom:1.2rem;text-wrap:pretty}
+article>h1+p{color:#516070;font-size:1.05rem;margin-bottom:1.75rem;padding-bottom:1.75rem;border-bottom:1px solid #ddd8d0}
+article ul{margin:0.25rem 0 1.25rem 1.375rem}
+article li{margin-bottom:0.4rem}
+article a{color:#1a56a0;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+article a:hover{color:#0e3d7c}
+article strong{color:#1a2030;font-weight:700}
+
+/* ---- Home hero ---- */
+.is-home article h1{font-size:2.5rem;margin-bottom:1rem}
+.is-home article>h1+p{font-size:1.1rem}
+
+/* ---- Table ---- */
+.table-wrap{overflow-x:auto;margin:1.75rem 0;border-radius:6px;border:1px solid #ddd8d0;box-shadow:0 1px 3px rgba(0,0,0,0.05)}
+table{width:100%;border-collapse:collapse;font-size:0.9375rem}
+thead{background:#0c1a2e}
+th{text-align:left;padding:11px 15px;color:rgba(255,255,255,0.88);font-size:0.77rem;font-weight:600;text-transform:uppercase;letter-spacing:0.07em}
+td{padding:11px 15px;border-bottom:1px solid #ddd8d0;vertical-align:top}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:#eef3fb}
+
+/* ---- CTA box ---- */
+.cta-box{background:#0c1a2e;border-radius:8px;padding:36px 40px;margin:56px 0 0;border:1px solid rgba(255,255,255,0.07)}
+.cta-inner{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.cta-eyebrow{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.13em;color:rgba(255,255,255,0.4);margin-bottom:6px;font-weight:600}
+.cta-box h3{font-family:Georgia,'Times New Roman',serif;font-size:1.25rem;font-weight:400;color:#fff;margin-bottom:10px}
+.cta-box>div>div p,.cta-inner>div p{font-size:0.9375rem;color:rgba(255,255,255,0.65);max-width:400px;margin:0}
+.cta-btn{display:inline-block;background:#fff;color:#0c1a2e;padding:11px 24px;border-radius:5px;font-weight:600;font-size:0.9375rem;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:opacity 0.12s}
+.cta-btn:hover{opacity:0.9;color:#0c1a2e}
+
+/* ---- Footer ---- */
+.site-ftr{background:#0c1a2e;color:rgba(255,255,255,0.6);padding:56px 24px 36px}
+.ftr-inner{max-width:788px;margin:0 auto}
+.ftr-top{display:flex;gap:48px;margin-bottom:40px;flex-wrap:wrap}
+.ftr-brand{flex:0 0 180px}
+.ftr-brand>a{display:block;font-family:Georgia,'Times New Roman',serif;color:#fff;text-decoration:none;font-size:1rem;margin-bottom:10px}
+.ftr-brand p{font-size:0.8rem;line-height:1.55;color:rgba(255,255,255,0.35)}
+.ftr-nav{display:flex;gap:32px;flex:1;flex-wrap:wrap}
+.ftr-col h4{color:rgba(255,255,255,0.35);font-size:0.67rem;text-transform:uppercase;letter-spacing:0.1em;font-weight:600;margin-bottom:12px}
+.ftr-col ul{list-style:none}
+.ftr-col li{margin-bottom:8px}
+.ftr-col a{color:rgba(255,255,255,0.55);text-decoration:none;font-size:0.875rem;line-height:1.35;transition:color 0.12s}
+.ftr-col a:hover{color:rgba(255,255,255,0.9)}
+.ftr-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:20px;font-size:0.8rem;color:rgba(255,255,255,0.3)}
+.ftr-bottom a{color:rgba(255,255,255,0.45);text-decoration:none}
+.ftr-bottom a:hover{color:rgba(255,255,255,0.65)}
+
+/* ---- Responsive ---- */
+@media(max-width:700px){
+  .hdr-inner{gap:8px}
+  .main-nav{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .main-nav::-webkit-scrollbar{display:none}
+  .main-nav a{font-size:0.8rem;padding:4px 7px}
+  article h1{font-size:1.75rem}
+  .is-home article h1{font-size:2rem}
+  article h2{font-size:1.25rem}
+  main{padding:36px 20px 64px}
+  .ftr-top{flex-direction:column;gap:28px}
+  .ftr-brand{flex:none}
+  .ftr-nav{flex-direction:column;gap:20px}
+  .cta-inner{flex-direction:column;align-items:flex-start}
+  .cta-box{padding:28px 24px}
+}
+</style>
+</head>
+<body>
+
+<header class="site-hdr">
+  <div class="hdr-inner">
+    <a class="logo" href="../">SecurityDashboards<span>.net</span></a>
+    <nav class="main-nav"><a href="../what-is-a-security-dashboard/">What Is a Dashboard</a><a href="../what-is-a-ciso-dashboard/">CISO Dashboard</a><a href="../best-security-dashboard-tools-2026/">Tools</a><a href="../the-data-layer-beneath-the-dashboard/">Data Layer</a><a href="../about/">About</a></nav>
+  </div>
+</header>
+
+<main>
+  <article>
+    <h1>What is a security KPI system of record?</h1>
+<p>A security KPI system of record is the layer that sits beneath your dashboards and owns your numbers. It collects security data from across your tools, reconciles the different ways those tools count things, computes your metrics consistently, and keeps a recorded, traceable history of every figure so you can reproduce and defend it later.</p>
+<p>The dashboard is the view. This is the record the view reads from. Two different jobs, and most security programs only ever built the first one.</p>
+<h2>Why the category exists</h2>
+<p>Every other function that reports to a board has a system of record beneath its dashboards. Finance has the general ledger. Sales has the CRM. HR has the HRIS. The dashboard is just a window onto the record. Nobody runs the business off the window alone.</p>
+<p>Security skipped that step. We built dashboards on top of scattered tool exports, with no ledger underneath. It works right up until someone asks a question the dashboard cannot answer, and then it does not work at all. The <a href="../security-dashboard-data-problem/">data problem</a> is the predictable result of a missing record.</p>
+<p>A security KPI system of record is just that missing piece, finally named and built for security.</p>
+<h2>What it does that a dashboard does not</h2>
+<p><strong>Collects across every tool, on a schedule.</strong> Not by hand, not when someone remembers. Scanners, EDR, identity, cloud posture, GRC, and where relevant non security sources like HR or finance data that no security tool can supply.</p>
+<p><strong>Normalizes.</strong> Reconciles definitions so a metric means one thing across the whole program, not five things depending on the source.</p>
+<p><strong>Computes deterministically.</strong> The same inputs always produce the same number, by a defined formula, not a probabilistic guess and not a one off spreadsheet calculation.</p>
+<p><strong>Records and versions.</strong> Keeps the computed numbers over time, so you can show real trends and recreate any past figure even after the source has rolled over.</p>
+<p><strong>Tracks provenance.</strong> Keeps a trace of where every number came from and how it was derived, so any figure can be explained on demand.</p>
+<p>A dashboard tool does none of this. It reads and draws. For the full split, see <a href="../the-data-layer-beneath-the-dashboard/">the data layer beneath the dashboard</a>.</p>
+<h2>How it differs from a SIEM</h2>
+<p>A SIEM is a system of record too, but for operational events, what fired and what an analyst did. That is a different grain and a different purpose. A security KPI system of record owns program performance metrics over time. The two are complementary, not competing. The full distinction is in <a href="../security-dashboard-vs-siem/">security dashboard vs SIEM</a>.</p>
+<h2>Who needs one</h2>
+<p>If you report security performance to a board or an executive team, and you have ever struggled to defend a number, reproduce a past figure, or explain a discrepancy between two dashboards, this is the gap you are feeling. It gets sharper the higher the stakes of the conversation, where "trust me" is not an acceptable answer.</p>
+<p>Smaller programs sometimes hold this together with disciplined spreadsheets for a while. It rarely survives scale. Past a handful of sources and a few quarters of history, you need a real system, not heroics.</p>
+<h2>Where to see one in practice</h2>
+<p>This is the layer my own company, Metric Maestro, was built to be. A deterministic, auditable security KPI system of record that sits beneath whatever dashboard you already use, so the numbers on it are ones you can actually defend. If you want to see what that looks like in practice, that is the place to look: <a href="https://metricmaestro.com" rel="noopener noreferrer" target="_blank">metricmaestro.com</a>.</p>
+<p>But the bigger point stands regardless of whose product you choose. The dashboard was never your real problem. The missing record underneath it is. Solve that, and the dashboard on top finally becomes something you can stand behind.</p>
+<p>Read next: <a href="../the-data-layer-beneath-the-dashboard/">the data layer beneath the dashboard</a> or <a href="../security-dashboard-data-problem/">the security dashboard data problem</a>.</p>
+
+  </article>
+  
+<aside class="cta-box">
+  <div class="cta-inner">
+    <div>
+      <p class="cta-eyebrow">The missing piece</p>
+      <h3>A security KPI system of record, built.</h3>
+      <p>Metric Maestro is a deterministic, auditable measurement layer that sits beneath your existing dashboards — making every number reproducible and defensible.</p>
+    </div>
+    <a href="https://metricmaestro.com" class="cta-btn" rel="noopener noreferrer" target="_blank">See Metric Maestro &#8594;</a>
+  </div>
+</aside>
+</main>
+
+<footer class="site-ftr">
+  <div class="ftr-inner">
+    <div class="ftr-top">
+      <div class="ftr-brand">
+        <a href="../">SecurityDashboards.net</a>
+        <p>A practical, vendor-neutral guide to security dashboards and the data layer beneath them.</p>
+      </div>
+      <div class="ftr-nav">
+        <div class="ftr-col">
+          <h4>Guides</h4>
+          <ul>
+            <li><a href="../what-is-a-security-dashboard/">What Is a Security Dashboard?</a></li>
+            <li><a href="../what-is-a-ciso-dashboard/">What Is a CISO Dashboard?</a></li>
+            <li><a href="../security-dashboard-examples/">Security Dashboard Examples</a></li>
+            <li><a href="../security-dashboard-vs-siem/">Dashboard vs SIEM</a></li>
+            <li><a href="../how-to-build-a-security-dashboard/">How to Build a Dashboard</a></li>
+          </ul>
+        </div>
+        <div class="ftr-col">
+          <h4>Tool Comparisons</h4>
+          <ul>
+            <li><a href="../best-security-dashboard-tools-2026/">Best Tools 2026</a></li>
+            <li><a href="../tools/grafana-security-dashboard/">Grafana</a></li>
+            <li><a href="../tools/power-bi-security-dashboard/">Power BI</a></li>
+            <li><a href="../tools/servicenow-security-dashboard/">ServiceNow</a></li>
+            <li><a href="../tools/splunk-security-dashboard/">Splunk</a></li>
+          </ul>
+        </div>
+        <div class="ftr-col">
+          <h4>The Data Layer</h4>
+          <ul>
+            <li><a href="../the-data-layer-beneath-the-dashboard/">The Data Layer</a></li>
+            <li><a href="../security-dashboard-data-problem/">The Data Problem</a></li>
+            <li><a href="../security-kpi-system-of-record/">Security KPI System of Record</a></li>
+            <li><a href="../about/">About This Site</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="ftr-bottom">
+      <p>&copy; 2026 SecurityDashboards.net &middot; Written by a security founder (Innovera, Atar Labs). The author runs <a href="https://metricmaestro.com" rel="noopener noreferrer" target="_blank">Metric Maestro</a>, a security KPI system of record. <a href="../about/">Full disclosure &rarr;</a></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
